@@ -18,7 +18,3 @@ api = Api(app)
 
 api.register_blueprint(ItemBlueprint)
 api.register_blueprint(StoreBlueprint)
-
-# @app.get("/item")
-# def get_all_items():
-#      return {"items": list(items.values())}
