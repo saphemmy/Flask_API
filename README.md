@@ -5,6 +5,10 @@
 
 `docker run -p 5005:5000 rest-apis-flask-python`
 
+### NOTE
+- To ensure the host folder sync's with the container folder run the command below:
+`docker run -dp 5001:5000 -w /ap -v "$(pwd):/app" desirable_image_name`
+
 ## Overview REST API
 
 - Create store, each with a `name` and a list of stocked `items`.
