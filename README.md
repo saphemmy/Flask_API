@@ -1,5 +1,10 @@
 # Flask REST-API
 
+### RUN
+`docker build -t rest-apis-flask-python .` 
+
+`docker run -p 5005:5000 rest-apis-flask-python`
+
 ## Overview REST API
 
 - Create store, each with a `name` and a list of stocked `items`.
