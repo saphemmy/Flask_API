@@ -1,27 +1,15 @@
-FROM python:3
+FROM python:3.10
 
-# Set Environment variables
-# ENV PYTHONUNBUFFERED=1
-
-# Copy the Pipfile and Pipfile.lock to the container
-COPY Pipfile Pipfile.lock /app/
-
-COPY ./requirements.txt /var/www/requirements.txt
+EXPOSE 5000
 
 # Install dependencies
 WORKDIR /app
 
-RUN pip install pipenv && pipenv install --system --deploy --ignore-pipfile
-
-RUN pip install -r /var/www/requirements.txt
-
 # Copy the rest of the application code
-COPY . /app
+COPY . .
 
-# Set the working directory
-WORKDIR /app/store
-
-EXPOSE 80
+# Install the requirements
+RUN pip install -r requirements.txt
 
 # Start the Flask server
-CMD ["gunicorn", "-b", "0.0.0.0:80", "store:create_app()"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
