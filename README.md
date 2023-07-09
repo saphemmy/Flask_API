@@ -16,3 +16,53 @@
 `{"name": "My Store", "items": []}`
 
 ## Create items
+### Request:
+`POST /store/My Store/item {"name": "Chair", "price": 170:50}`
+### Response
+`{"name": "Chair", "price": 170:50}`
+
+## Retrive all stores and thier items
+### Request:
+`GET /store`
+### Response
+```
+{
+    "stores": [
+        "name": "My Store",
+        "items": [
+            {
+                "name": "Chair",
+                "price": 170.50
+            }
+        ]
+    ]
+}
+```
+
+## Get a particular store
+### Request:
+`GET /store/My Store`
+### Response
+```
+{
+    "name": "My Store",
+    "items": [
+        {
+            "name": "Chair",
+            "price": 170.50
+        }
+    ]
+}
+```
+
+## Get only items in a store
+### Request:
+`GET /store/My Store/item`
+### Response
+```
+{
+    {
+        "name": "Chair",
+        "price": 170.50
+    }
+}
